@@ -1,0 +1,12 @@
+*.log
+*.txt
+*.so
+*.png
+*.gif
+*.jpg
+*.pdf
+build/
+log/
+msg/
+srv/
+install/
