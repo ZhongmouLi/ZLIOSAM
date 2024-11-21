@@ -2,7 +2,7 @@
   ros__parameters:
 
     # Topics
-    pointCloudTopic: "/veldoyne_points"       #"/a200_0000/sensors/lidar3d_0/points"            # Point cloud data
+    pointCloudTopic: "/points"       #"/a200_0000/sensors/lidar3d_0/points"            # Point cloud data
     imuTopic: "/imu_raw"  #    "/a200_0000/sensors/imu_0/data"                   # IMU data
     odomTopic: "odometry/imu"                    # IMU pre-preintegration odometry, same frequency as IMU
     gpsTopic: "odometry/gpsz"                    # GPS odometry topic from navsat, see module_navsat.launch file
@@ -42,11 +42,11 @@
     imuRPYWeight: 0.01
 
     extrinsicTrans:  [ 0.0,  0.0,  0.3 ]
-    extrinsicRot:    [-1.0,  0.0,  0.0,
+    extrinsicRot:    [1.0,  0.0,  0.0,
                        0.0,  1.0,  0.0,
-                       0.0,  0.0, -1.0 ]
-    extrinsicRPY: [ 0.0,  1.0,  0.0,
-                   -1.0,  0.0,  0.0,
+                       0.0,  0.0, 1.0 ]
+    extrinsicRPY: [ 1.0,  0.0,  0.0,
+                    0.0,  1.0,  0.0,
                     0.0,  0.0,  1.0 ]
 
     # LOAM feature threshold
