@@ -1,0 +1,628 @@
+[0.000000] (-) TimerEvent: {}
+[0.000595] (lio_sam) JobQueued: {'identifier': 'lio_sam', 'dependencies': OrderedDict()}
+[0.000629] (lio_sam) JobStarted: {'identifier': 'lio_sam'}
+[0.005750] (lio_sam) JobProgress: {'identifier': 'lio_sam', 'progress': 'cmake'}
+[0.006412] (lio_sam) JobProgress: {'identifier': 'lio_sam', 'progress': 'build'}
+[0.006941] (lio_sam) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/build/lio_sam', '--', '-j12', '-l12'], 'cwd': '/home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/build/lio_sam', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('QT_SCALE_FACTOR', '1'), ('LANGUAGE', 'en_GB:en'), ('USER', 'mscroboticslaptop19'), ('XDG_SEAT', 'seat0'), ('XDG_SESSION_TYPE', 'x11'), ('COMPIZ_CONFIG_PROFILE', 'mate'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/mscroboticslaptop19/ros2_ws/install/spl_lio_sam/lib:/home/mscroboticslaptop19/ros2_ws/install/lio_sam/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/mscroboticslaptop19'), ('OLDPWD', '/home/mscroboticslaptop19/ros2_ws'), ('DESKTOP_SESSION', 'mate'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'gail:atk-bridge:appmenu-gtk-module:gail:atk-bridge:canberra-gtk-module'), ('SYSTEMD_EXEC_PID', '24508'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('UBUNTU_MENUPROXY', '1'), ('QT_QPA_PLATFORMTHEME', 'gtk2'), ('COLCON_PREFIX_PATH', '/home/mscroboticslaptop19/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'mscroboticslaptop19'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'mscroboticslaptop19'), ('TERM', 'xterm-256color'), ('GTK_OVERLAY_SCROLLING', '0'), ('XDG_SESSION_ID', '8'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/HP-EliteBook-640-14-inch-G9-Notebook-PC:@/tmp/.ICE-unix/24635,unix/HP-EliteBook-640-14-inch-G9-Notebook-PC:/tmp/.ICE-unix/24635'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/54aee8a7_be47_4c0c_b084_6cb600f988d1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1.0'), ('LANG', 'en_GB.UTF-8'), ('XDG_CURRENT_DESKTOP', 'MATE'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'mate'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.97'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/mscroboticslaptop19/ros2_ws/install/spl_lio_sam:/home/mscroboticslaptop19/ros2_ws/install/lio_sam:/home/mscroboticslaptop19/ros2_ws/install/example_urdf_robot:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'mate'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('XDG_VTNR', '2'), ('PWD', '/home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/build/lio_sam'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-mate:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('XDG_DATA_DIRS', '/usr/share/mate:/usr/share/mate:/usr/share/gnome:/home/mscroboticslaptop19/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/mscroboticslaptop19/ros2_ws/install/spl_lio_sam/local/lib/python3.10/dist-packages:/home/mscroboticslaptop19/ros2_ws/install/lio_sam/local/lib/python3.10/dist-packages:/home/mscroboticslaptop19/ros2_ws/install/example_urdf_robot/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('MATE_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/mscroboticslaptop19/ros2_ws/install/spl_lio_sam:/home/mscroboticslaptop19/ros2_ws/install/lio_sam:/home/mscroboticslaptop19/ros2_ws/install/example_urdf_robot:/opt/ros/humble'), ('QT_FONT_DPI', '96')]), 'shell': False}
+[0.053648] (lio_sam) StdoutLine: {'line': b'[  8%] Built target lio_sam__rosidl_generator_c\n'}
+[0.054314] (lio_sam) StdoutLine: {'line': b'[ 10%] Built target lio_sam__cpp\n'}
+[0.063260] (lio_sam) StdoutLine: {'line': b'[ 10%] Built target ament_cmake_python_copy_lio_sam\n'}
+[0.071681] (lio_sam) StdoutLine: {'line': b'[ 19%] Built target lio_sam__rosidl_typesupport_c\n'}
+[0.074635] (lio_sam) StdoutLine: {'line': b'[ 27%] Built target lio_sam__rosidl_typesupport_introspection_cpp\n'}
+[0.074928] (lio_sam) StdoutLine: {'line': b'[ 36%] Built target lio_sam__rosidl_typesupport_fastrtps_c\n'}
+[0.075304] (lio_sam) StdoutLine: {'line': b'[ 44%] Built target lio_sam__rosidl_typesupport_introspection_c\n'}
+[0.077868] (lio_sam) StdoutLine: {'line': b'[ 53%] Built target lio_sam__rosidl_typesupport_fastrtps_cpp\n'}
+[0.078118] (lio_sam) StdoutLine: {'line': b'[ 61%] Built target lio_sam__rosidl_typesupport_cpp\n'}
+[0.097586] (lio_sam) StdoutLine: {'line': b'[ 61%] Built target lio_sam\n'}
+[0.099840] (-) TimerEvent: {}
+[0.113636] (lio_sam) StdoutLine: {'line': b'[ 65%] Built target lio_sam_imageProjection\n'}
+[0.114007] (lio_sam) StdoutLine: {'line': b'[ 68%] Built target lio_sam__py\n'}
+[0.115403] (lio_sam) StdoutLine: {'line': b'[ 72%] \x1b[32mBuilding CXX object CMakeFiles/lio_sam_mapOptimization.dir/src/mapOptmization.cpp.o\x1b[0m\n'}
+[0.115995] (lio_sam) StdoutLine: {'line': b'[ 74%] Built target lio_sam_featureExtraction\n'}
+[0.121153] (lio_sam) StdoutLine: {'line': b'[ 78%] Built target lio_sam_imuPreintegration\n'}
+[0.135214] (lio_sam) StdoutLine: {'line': b'[ 85%] Built target lio_sam__rosidl_generator_py\n'}
+[0.155915] (lio_sam) StdoutLine: {'line': b'[ 97%] Built target lio_sam__rosidl_typesupport_c__pyext\n'}
+[0.156100] (lio_sam) StdoutLine: {'line': b'[ 97%] Built target lio_sam__rosidl_typesupport_introspection_c__pyext\n'}
+[0.156184] (lio_sam) StdoutLine: {'line': b'[ 97%] Built target lio_sam__rosidl_typesupport_fastrtps_c__pyext\n'}
+[0.200062] (-) TimerEvent: {}
+[0.226719] (lio_sam) StdoutLine: {'line': b'running egg_info\n'}
+[0.227149] (lio_sam) StdoutLine: {'line': b'writing lio_sam.egg-info/PKG-INFO\n'}
+[0.227428] (lio_sam) StdoutLine: {'line': b'writing dependency_links to lio_sam.egg-info/dependency_links.txt\n'}
+[0.227532] (lio_sam) StdoutLine: {'line': b'writing top-level names to lio_sam.egg-info/top_level.txt\n'}
+[0.229414] (lio_sam) StdoutLine: {'line': b"reading manifest file 'lio_sam.egg-info/SOURCES.txt'\n"}
+[0.229667] (lio_sam) StdoutLine: {'line': b"writing manifest file 'lio_sam.egg-info/SOURCES.txt'\n"}
+[0.249711] (lio_sam) StdoutLine: {'line': b'[ 97%] Built target ament_cmake_python_build_lio_sam_egg\n'}
+[0.300221] (-) TimerEvent: {}
+[0.400634] (-) TimerEvent: {}
+[0.501064] (-) TimerEvent: {}
+[0.601458] (-) TimerEvent: {}
+[0.701858] (-) TimerEvent: {}
+[0.802293] (-) TimerEvent: {}
+[0.902695] (-) TimerEvent: {}
+[1.003090] (-) TimerEvent: {}
+[1.103475] (-) TimerEvent: {}
+[1.203872] (-) TimerEvent: {}
+[1.304291] (-) TimerEvent: {}
+[1.404680] (-) TimerEvent: {}
+[1.505077] (-) TimerEvent: {}
+[1.605472] (-) TimerEvent: {}
+[1.705858] (-) TimerEvent: {}
+[1.806275] (-) TimerEvent: {}
+[1.906669] (-) TimerEvent: {}
+[2.007067] (-) TimerEvent: {}
+[2.107485] (-) TimerEvent: {}
+[2.207888] (-) TimerEvent: {}
+[2.308306] (-) TimerEvent: {}
+[2.408706] (-) TimerEvent: {}
+[2.509095] (-) TimerEvent: {}
+[2.609488] (-) TimerEvent: {}
+[2.709887] (-) TimerEvent: {}
+[2.810359] (-) TimerEvent: {}
+[2.910759] (-) TimerEvent: {}
+[3.011170] (-) TimerEvent: {}
+[3.111568] (-) TimerEvent: {}
+[3.212003] (-) TimerEvent: {}
+[3.312446] (-) TimerEvent: {}
+[3.412829] (-) TimerEvent: {}
+[3.513238] (-) TimerEvent: {}
+[3.613631] (-) TimerEvent: {}
+[3.714052] (-) TimerEvent: {}
+[3.814448] (-) TimerEvent: {}
+[3.914858] (-) TimerEvent: {}
+[4.015278] (-) TimerEvent: {}
+[4.115671] (-) TimerEvent: {}
+[4.216084] (-) TimerEvent: {}
+[4.316487] (-) TimerEvent: {}
+[4.416896] (-) TimerEvent: {}
+[4.517324] (-) TimerEvent: {}
+[4.617721] (-) TimerEvent: {}
+[4.718139] (-) TimerEvent: {}
+[4.818459] (-) TimerEvent: {}
+[4.918737] (-) TimerEvent: {}
+[5.019102] (-) TimerEvent: {}
+[5.119355] (-) TimerEvent: {}
+[5.219707] (-) TimerEvent: {}
+[5.320064] (-) TimerEvent: {}
+[5.420306] (-) TimerEvent: {}
+[5.520574] (-) TimerEvent: {}
+[5.620968] (-) TimerEvent: {}
+[5.721225] (-) TimerEvent: {}
+[5.821529] (-) TimerEvent: {}
+[5.921874] (-) TimerEvent: {}
+[6.022134] (-) TimerEvent: {}
+[6.122398] (-) TimerEvent: {}
+[6.222666] (-) TimerEvent: {}
+[6.323022] (-) TimerEvent: {}
+[6.423372] (-) TimerEvent: {}
+[6.523663] (-) TimerEvent: {}
+[6.624011] (-) TimerEvent: {}
+[6.724262] (-) TimerEvent: {}
+[6.824537] (-) TimerEvent: {}
+[6.924886] (-) TimerEvent: {}
+[7.025143] (-) TimerEvent: {}
+[7.125437] (-) TimerEvent: {}
+[7.225727] (-) TimerEvent: {}
+[7.326074] (-) TimerEvent: {}
+[7.426341] (-) TimerEvent: {}
+[7.526631] (-) TimerEvent: {}
+[7.627000] (-) TimerEvent: {}
+[7.727241] (-) TimerEvent: {}
+[7.827524] (-) TimerEvent: {}
+[7.927878] (-) TimerEvent: {}
+[8.028126] (-) TimerEvent: {}
+[8.128387] (-) TimerEvent: {}
+[8.228756] (-) TimerEvent: {}
+[8.329116] (-) TimerEvent: {}
+[8.429488] (-) TimerEvent: {}
+[8.529850] (-) TimerEvent: {}
+[8.630122] (-) TimerEvent: {}
+[8.730393] (-) TimerEvent: {}
+[8.830675] (-) TimerEvent: {}
+[8.931044] (-) TimerEvent: {}
+[9.031293] (-) TimerEvent: {}
+[9.131580] (-) TimerEvent: {}
+[9.231937] (-) TimerEvent: {}
+[9.332188] (-) TimerEvent: {}
+[9.432475] (-) TimerEvent: {}
+[9.532834] (-) TimerEvent: {}
+[9.633112] (-) TimerEvent: {}
+[9.733395] (-) TimerEvent: {}
+[9.833795] (-) TimerEvent: {}
+[9.934168] (-) TimerEvent: {}
+[10.034526] (-) TimerEvent: {}
+[10.134875] (-) TimerEvent: {}
+[10.235228] (-) TimerEvent: {}
+[10.335585] (-) TimerEvent: {}
+[10.435945] (-) TimerEvent: {}
+[10.536209] (-) TimerEvent: {}
+[10.636555] (-) TimerEvent: {}
+[10.736920] (-) TimerEvent: {}
+[10.837287] (-) TimerEvent: {}
+[10.937637] (-) TimerEvent: {}
+[11.037997] (-) TimerEvent: {}
+[11.138338] (-) TimerEvent: {}
+[11.238717] (-) TimerEvent: {}
+[11.339098] (-) TimerEvent: {}
+[11.439462] (-) TimerEvent: {}
+[11.539831] (-) TimerEvent: {}
+[11.640212] (-) TimerEvent: {}
+[11.740571] (-) TimerEvent: {}
+[11.840929] (-) TimerEvent: {}
+[11.941307] (-) TimerEvent: {}
+[12.041666] (-) TimerEvent: {}
+[12.142033] (-) TimerEvent: {}
+[12.242394] (-) TimerEvent: {}
+[12.342755] (-) TimerEvent: {}
+[12.443125] (-) TimerEvent: {}
+[12.543490] (-) TimerEvent: {}
+[12.643874] (-) TimerEvent: {}
+[12.744243] (-) TimerEvent: {}
+[12.844602] (-) TimerEvent: {}
+[12.944964] (-) TimerEvent: {}
+[13.045318] (-) TimerEvent: {}
+[13.145671] (-) TimerEvent: {}
+[13.246046] (-) TimerEvent: {}
+[13.346382] (-) TimerEvent: {}
+[13.446755] (-) TimerEvent: {}
+[13.547117] (-) TimerEvent: {}
+[13.647476] (-) TimerEvent: {}
+[13.747779] (-) TimerEvent: {}
+[13.848129] (-) TimerEvent: {}
+[13.948480] (-) TimerEvent: {}
+[14.048840] (-) TimerEvent: {}
+[14.149199] (-) TimerEvent: {}
+[14.249567] (-) TimerEvent: {}
+[14.349930] (-) TimerEvent: {}
+[14.450286] (-) TimerEvent: {}
+[14.550654] (-) TimerEvent: {}
+[14.651008] (-) TimerEvent: {}
+[14.751389] (-) TimerEvent: {}
+[14.851754] (-) TimerEvent: {}
+[14.952100] (-) TimerEvent: {}
+[15.052458] (-) TimerEvent: {}
+[15.152814] (-) TimerEvent: {}
+[15.253193] (-) TimerEvent: {}
+[15.353545] (-) TimerEvent: {}
+[15.453908] (-) TimerEvent: {}
+[15.554267] (-) TimerEvent: {}
+[15.654617] (-) TimerEvent: {}
+[15.754993] (-) TimerEvent: {}
+[15.855349] (-) TimerEvent: {}
+[15.955705] (-) TimerEvent: {}
+[16.056069] (-) TimerEvent: {}
+[16.156427] (-) TimerEvent: {}
+[16.256791] (-) TimerEvent: {}
+[16.357156] (-) TimerEvent: {}
+[16.457514] (-) TimerEvent: {}
+[16.557872] (-) TimerEvent: {}
+[16.658257] (-) TimerEvent: {}
+[16.758608] (-) TimerEvent: {}
+[16.858972] (-) TimerEvent: {}
+[16.959335] (-) TimerEvent: {}
+[17.059690] (-) TimerEvent: {}
+[17.160051] (-) TimerEvent: {}
+[17.260411] (-) TimerEvent: {}
+[17.360699] (-) TimerEvent: {}
+[17.461052] (-) TimerEvent: {}
+[17.561416] (-) TimerEvent: {}
+[17.661681] (-) TimerEvent: {}
+[17.762009] (-) TimerEvent: {}
+[17.862256] (-) TimerEvent: {}
+[17.962533] (-) TimerEvent: {}
+[18.062899] (-) TimerEvent: {}
+[18.163173] (-) TimerEvent: {}
+[18.263451] (-) TimerEvent: {}
+[18.363730] (-) TimerEvent: {}
+[18.464083] (-) TimerEvent: {}
+[18.564346] (-) TimerEvent: {}
+[18.664623] (-) TimerEvent: {}
+[18.764979] (-) TimerEvent: {}
+[18.865324] (-) TimerEvent: {}
+[18.965608] (-) TimerEvent: {}
+[19.066007] (-) TimerEvent: {}
+[19.166271] (-) TimerEvent: {}
+[19.266558] (-) TimerEvent: {}
+[19.366919] (-) TimerEvent: {}
+[19.467188] (-) TimerEvent: {}
+[19.567472] (-) TimerEvent: {}
+[19.667833] (-) TimerEvent: {}
+[19.768116] (-) TimerEvent: {}
+[19.868388] (-) TimerEvent: {}
+[19.968662] (-) TimerEvent: {}
+[20.069031] (-) TimerEvent: {}
+[20.169285] (-) TimerEvent: {}
+[20.269636] (-) TimerEvent: {}
+[20.370010] (-) TimerEvent: {}
+[20.470365] (-) TimerEvent: {}
+[20.570740] (-) TimerEvent: {}
+[20.671110] (-) TimerEvent: {}
+[20.771462] (-) TimerEvent: {}
+[20.871820] (-) TimerEvent: {}
+[20.972197] (-) TimerEvent: {}
+[21.072567] (-) TimerEvent: {}
+[21.172934] (-) TimerEvent: {}
+[21.273312] (-) TimerEvent: {}
+[21.373671] (-) TimerEvent: {}
+[21.474039] (-) TimerEvent: {}
+[21.574402] (-) TimerEvent: {}
+[21.674776] (-) TimerEvent: {}
+[21.775112] (-) TimerEvent: {}
+[21.875455] (-) TimerEvent: {}
+[21.975733] (-) TimerEvent: {}
+[22.076091] (-) TimerEvent: {}
+[22.176338] (-) TimerEvent: {}
+[22.276621] (-) TimerEvent: {}
+[22.376983] (-) TimerEvent: {}
+[22.477228] (-) TimerEvent: {}
+[22.577502] (-) TimerEvent: {}
+[22.677878] (-) TimerEvent: {}
+[22.778158] (-) TimerEvent: {}
+[22.878443] (-) TimerEvent: {}
+[22.978749] (-) TimerEvent: {}
+[23.079120] (-) TimerEvent: {}
+[23.179363] (-) TimerEvent: {}
+[23.279639] (-) TimerEvent: {}
+[23.379986] (-) TimerEvent: {}
+[23.480224] (-) TimerEvent: {}
+[23.580486] (-) TimerEvent: {}
+[23.680827] (-) TimerEvent: {}
+[23.781106] (-) TimerEvent: {}
+[23.881340] (-) TimerEvent: {}
+[23.981606] (-) TimerEvent: {}
+[24.081946] (-) TimerEvent: {}
+[24.182195] (-) TimerEvent: {}
+[24.282459] (-) TimerEvent: {}
+[24.382724] (-) TimerEvent: {}
+[24.483052] (-) TimerEvent: {}
+[24.583291] (-) TimerEvent: {}
+[24.683641] (-) TimerEvent: {}
+[24.783993] (-) TimerEvent: {}
+[24.884331] (-) TimerEvent: {}
+[24.984609] (-) TimerEvent: {}
+[25.084992] (-) TimerEvent: {}
+[25.185250] (-) TimerEvent: {}
+[25.285544] (-) TimerEvent: {}
+[25.385900] (-) TimerEvent: {}
+[25.486157] (-) TimerEvent: {}
+[25.586441] (-) TimerEvent: {}
+[25.686801] (-) TimerEvent: {}
+[25.787114] (-) TimerEvent: {}
+[25.887393] (-) TimerEvent: {}
+[25.987688] (-) TimerEvent: {}
+[26.088065] (-) TimerEvent: {}
+[26.188320] (-) TimerEvent: {}
+[26.288624] (-) TimerEvent: {}
+[26.388990] (-) TimerEvent: {}
+[26.489343] (-) TimerEvent: {}
+[26.589615] (-) TimerEvent: {}
+[26.689981] (-) TimerEvent: {}
+[26.790216] (-) TimerEvent: {}
+[26.890489] (-) TimerEvent: {}
+[26.990830] (-) TimerEvent: {}
+[27.091113] (-) TimerEvent: {}
+[27.191353] (-) TimerEvent: {}
+[27.291618] (-) TimerEvent: {}
+[27.391970] (-) TimerEvent: {}
+[27.492227] (-) TimerEvent: {}
+[27.592496] (-) TimerEvent: {}
+[27.692762] (-) TimerEvent: {}
+[27.793106] (-) TimerEvent: {}
+[27.893345] (-) TimerEvent: {}
+[27.993624] (-) TimerEvent: {}
+[28.093985] (-) TimerEvent: {}
+[28.194226] (-) TimerEvent: {}
+[28.294511] (-) TimerEvent: {}
+[28.394850] (-) TimerEvent: {}
+[28.495124] (-) TimerEvent: {}
+[28.595424] (-) TimerEvent: {}
+[28.695731] (-) TimerEvent: {}
+[28.796108] (-) TimerEvent: {}
+[28.896439] (-) TimerEvent: {}
+[28.996697] (-) TimerEvent: {}
+[29.097031] (-) TimerEvent: {}
+[29.197258] (-) TimerEvent: {}
+[29.297590] (-) TimerEvent: {}
+[29.397915] (-) TimerEvent: {}
+[29.498147] (-) TimerEvent: {}
+[29.598480] (-) TimerEvent: {}
+[29.698817] (-) TimerEvent: {}
+[29.799042] (-) TimerEvent: {}
+[29.899375] (-) TimerEvent: {}
+[29.999625] (-) TimerEvent: {}
+[30.099950] (-) TimerEvent: {}
+[30.200282] (-) TimerEvent: {}
+[30.300610] (-) TimerEvent: {}
+[30.400938] (-) TimerEvent: {}
+[30.501280] (-) TimerEvent: {}
+[30.601535] (-) TimerEvent: {}
+[30.701860] (-) TimerEvent: {}
+[30.802193] (-) TimerEvent: {}
+[30.902526] (-) TimerEvent: {}
+[31.017925] (-) TimerEvent: {}
+[31.118175] (-) TimerEvent: {}
+[31.218511] (-) TimerEvent: {}
+[31.318840] (-) TimerEvent: {}
+[31.419186] (-) TimerEvent: {}
+[31.519514] (-) TimerEvent: {}
+[31.619840] (-) TimerEvent: {}
+[31.720171] (-) TimerEvent: {}
+[31.820505] (-) TimerEvent: {}
+[31.920855] (-) TimerEvent: {}
+[32.021212] (-) TimerEvent: {}
+[32.121543] (-) TimerEvent: {}
+[32.221900] (-) TimerEvent: {}
+[32.322240] (-) TimerEvent: {}
+[32.422567] (-) TimerEvent: {}
+[32.522901] (-) TimerEvent: {}
+[32.623243] (-) TimerEvent: {}
+[32.723577] (-) TimerEvent: {}
+[32.823900] (-) TimerEvent: {}
+[32.924144] (-) TimerEvent: {}
+[33.024480] (-) TimerEvent: {}
+[33.124816] (-) TimerEvent: {}
+[33.225147] (-) TimerEvent: {}
+[33.325480] (-) TimerEvent: {}
+[33.425746] (-) TimerEvent: {}
+[33.526069] (-) TimerEvent: {}
+[33.626399] (-) TimerEvent: {}
+[33.726724] (-) TimerEvent: {}
+[33.827054] (-) TimerEvent: {}
+[33.927300] (-) TimerEvent: {}
+[34.027633] (-) TimerEvent: {}
+[34.127985] (-) TimerEvent: {}
+[34.228257] (-) TimerEvent: {}
+[34.328586] (-) TimerEvent: {}
+[34.428919] (-) TimerEvent: {}
+[34.529278] (-) TimerEvent: {}
+[34.629636] (-) TimerEvent: {}
+[34.729984] (-) TimerEvent: {}
+[34.830261] (-) TimerEvent: {}
+[34.930588] (-) TimerEvent: {}
+[35.030926] (-) TimerEvent: {}
+[35.131170] (-) TimerEvent: {}
+[35.231505] (-) TimerEvent: {}
+[35.331763] (-) TimerEvent: {}
+[35.432094] (-) TimerEvent: {}
+[35.532421] (-) TimerEvent: {}
+[35.632754] (-) TimerEvent: {}
+[35.733085] (-) TimerEvent: {}
+[35.833310] (-) TimerEvent: {}
+[35.933796] (-) TimerEvent: {}
+[36.034111] (-) TimerEvent: {}
+[36.134349] (-) TimerEvent: {}
+[36.234616] (-) TimerEvent: {}
+[36.334961] (-) TimerEvent: {}
+[36.435285] (-) TimerEvent: {}
+[36.535614] (-) TimerEvent: {}
+[36.635953] (-) TimerEvent: {}
+[36.736294] (-) TimerEvent: {}
+[36.836631] (-) TimerEvent: {}
+[36.936980] (-) TimerEvent: {}
+[37.037334] (-) TimerEvent: {}
+[37.137679] (-) TimerEvent: {}
+[37.237976] (-) TimerEvent: {}
+[37.338321] (-) TimerEvent: {}
+[37.438661] (-) TimerEvent: {}
+[37.539018] (-) TimerEvent: {}
+[37.639384] (-) TimerEvent: {}
+[37.739726] (-) TimerEvent: {}
+[37.840073] (-) TimerEvent: {}
+[37.940419] (-) TimerEvent: {}
+[38.040762] (-) TimerEvent: {}
+[38.141112] (-) TimerEvent: {}
+[38.241462] (-) TimerEvent: {}
+[38.341801] (-) TimerEvent: {}
+[38.442175] (-) TimerEvent: {}
+[38.542436] (-) TimerEvent: {}
+[38.642768] (-) TimerEvent: {}
+[38.743027] (-) TimerEvent: {}
+[38.843392] (-) TimerEvent: {}
+[38.943762] (-) TimerEvent: {}
+[39.044122] (-) TimerEvent: {}
+[39.073163] (lio_sam) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable lio_sam_mapOptimization\x1b[0m\n'}
+[39.144332] (-) TimerEvent: {}
+[39.244717] (-) TimerEvent: {}
+[39.345077] (-) TimerEvent: {}
+[39.417184] (lio_sam) StderrLine: {'line': b'/usr/bin/ld: warning: libtbb.so.2, needed by /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.5.4d, may conflict with libtbb.so.12\n'}
+[39.445279] (-) TimerEvent: {}
+[39.545639] (-) TimerEvent: {}
+[39.555785] (lio_sam) StdoutLine: {'line': b'[100%] Built target lio_sam_mapOptimization\n'}
+[39.566942] (lio_sam) CommandEnded: {'returncode': 0}
+[39.635664] (lio_sam) JobProgress: {'identifier': 'lio_sam', 'progress': 'install'}
+[39.642582] (lio_sam) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/build/lio_sam'], 'cwd': '/home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/build/lio_sam', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('QT_SCALE_FACTOR', '1'), ('LANGUAGE', 'en_GB:en'), ('USER', 'mscroboticslaptop19'), ('XDG_SEAT', 'seat0'), ('XDG_SESSION_TYPE', 'x11'), ('COMPIZ_CONFIG_PROFILE', 'mate'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/mscroboticslaptop19/ros2_ws/install/spl_lio_sam/lib:/home/mscroboticslaptop19/ros2_ws/install/lio_sam/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/mscroboticslaptop19'), ('OLDPWD', '/home/mscroboticslaptop19/ros2_ws'), ('DESKTOP_SESSION', 'mate'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'gail:atk-bridge:appmenu-gtk-module:gail:atk-bridge:canberra-gtk-module'), ('SYSTEMD_EXEC_PID', '24508'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('UBUNTU_MENUPROXY', '1'), ('QT_QPA_PLATFORMTHEME', 'gtk2'), ('COLCON_PREFIX_PATH', '/home/mscroboticslaptop19/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'mscroboticslaptop19'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'mscroboticslaptop19'), ('TERM', 'xterm-256color'), ('GTK_OVERLAY_SCROLLING', '0'), ('XDG_SESSION_ID', '8'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/HP-EliteBook-640-14-inch-G9-Notebook-PC:@/tmp/.ICE-unix/24635,unix/HP-EliteBook-640-14-inch-G9-Notebook-PC:/tmp/.ICE-unix/24635'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/54aee8a7_be47_4c0c_b084_6cb600f988d1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1.0'), ('LANG', 'en_GB.UTF-8'), ('XDG_CURRENT_DESKTOP', 'MATE'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'mate'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.97'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/mscroboticslaptop19/ros2_ws/install/spl_lio_sam:/home/mscroboticslaptop19/ros2_ws/install/lio_sam:/home/mscroboticslaptop19/ros2_ws/install/example_urdf_robot:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'mate'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('XDG_VTNR', '2'), ('PWD', '/home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/build/lio_sam'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-mate:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('XDG_DATA_DIRS', '/usr/share/mate:/usr/share/mate:/usr/share/gnome:/home/mscroboticslaptop19/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/mscroboticslaptop19/ros2_ws/install/spl_lio_sam/local/lib/python3.10/dist-packages:/home/mscroboticslaptop19/ros2_ws/install/lio_sam/local/lib/python3.10/dist-packages:/home/mscroboticslaptop19/ros2_ws/install/example_urdf_robot/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('MATE_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/mscroboticslaptop19/ros2_ws/install/spl_lio_sam:/home/mscroboticslaptop19/ros2_ws/install/lio_sam:/home/mscroboticslaptop19/ros2_ws/install/example_urdf_robot:/opt/ros/humble'), ('QT_FONT_DPI', '96')]), 'shell': False}
+[39.645705] (-) TimerEvent: {}
+[39.647916] (lio_sam) StdoutLine: {'line': b'-- Install configuration: "Release"\n'}
+[39.648058] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/ament_index/resource_index/rosidl_interfaces/lio_sam\n'}
+[39.648139] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam\n'}
+[39.648207] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv\n'}
+[39.648357] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv/save_map.h\n'}
+[39.648580] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv/detail\n'}
+[39.648670] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv/detail/save_map__functions.c\n'}
+[39.648841] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv/detail/save_map__functions.h\n'}
+[39.648975] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv/detail/save_map__struct.h\n'}
+[39.649060] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv/detail/save_map__type_support.h\n'}
+[39.649198] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg\n'}
+[39.649289] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/detail\n'}
+[39.649364] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/detail/cloud_info__functions.h\n'}
+[39.649450] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/detail/cloud_info__struct.h\n'}
+[39.649535] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/detail/cloud_info__functions.c\n'}
+[39.649626] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/detail/cloud_info__type_support.h\n'}
+[39.649703] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/cloud_info.h\n'}
+[39.649819] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/rosidl_generator_c__visibility_control.h\n'}
+[39.649921] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/environment/library_path.sh\n'}
+[39.649990] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/environment/library_path.dsv\n'}
+[39.650055] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/lib/liblio_sam__rosidl_generator_c.so\n'}
+[39.650124] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam\n'}
+[39.650185] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv\n'}
+[39.650251] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv/detail\n'}
+[39.650311] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv/detail/save_map__rosidl_typesupport_fastrtps_c.h\n'}
+[39.650370] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg\n'}
+[39.650429] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[39.650488] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/detail\n'}
+[39.650547] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/detail/cloud_info__rosidl_typesupport_fastrtps_c.h\n'}
+[39.650605] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/lib/liblio_sam__rosidl_typesupport_fastrtps_c.so\n'}
+[39.650664] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam\n'}
+[39.650723] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv\n'}
+[39.650781] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv/detail\n'}
+[39.650839] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv/detail/save_map__type_support.c\n'}
+[39.650898] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv/detail/save_map__rosidl_typesupport_introspection_c.h\n'}
+[39.650963] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg\n'}
+[39.651035] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[39.651099] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/detail\n'}
+[39.651164] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/detail/cloud_info__rosidl_typesupport_introspection_c.h\n'}
+[39.651224] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/detail/cloud_info__type_support.c\n'}
+[39.651283] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/lib/liblio_sam__rosidl_typesupport_introspection_c.so\n'}
+[39.651346] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/lib/liblio_sam__rosidl_typesupport_c.so\n'}
+[39.651406] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam\n'}
+[39.651465] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv\n'}
+[39.651524] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv/save_map.hpp\n'}
+[39.651584] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv/detail\n'}
+[39.651642] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv/detail/save_map__struct.hpp\n'}
+[39.651701] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv/detail/save_map__traits.hpp\n'}
+[39.651760] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv/detail/save_map__builder.hpp\n'}
+[39.651819] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg\n'}
+[39.651877] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/detail\n'}
+[39.651936] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/detail/cloud_info__builder.hpp\n'}
+[39.652007] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/detail/cloud_info__traits.hpp\n'}
+[39.652068] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/detail/cloud_info__struct.hpp\n'}
+[39.652135] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/cloud_info.hpp\n'}
+[39.652197] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam\n'}
+[39.652255] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv\n'}
+[39.652313] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv/detail\n'}
+[39.652371] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv/detail/save_map__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[39.652429] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv/detail/dds_fastrtps\n'}
+[39.652487] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg\n'}
+[39.652546] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/detail\n'}
+[39.652608] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/detail/cloud_info__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[39.652668] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/detail/dds_fastrtps\n'}
+[39.652726] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[39.652787] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/lib/liblio_sam__rosidl_typesupport_fastrtps_cpp.so\n'}
+[39.652846] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam\n'}
+[39.652903] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv\n'}
+[39.652967] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv/detail\n'}
+[39.653031] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv/detail/save_map__rosidl_typesupport_introspection_cpp.hpp\n'}
+[39.653089] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/srv/detail/save_map__type_support.cpp\n'}
+[39.653147] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg\n'}
+[39.653209] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/detail\n'}
+[39.653270] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/detail/cloud_info__rosidl_typesupport_introspection_cpp.hpp\n'}
+[39.653328] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/lio_sam/msg/detail/cloud_info__type_support.cpp\n'}
+[39.653385] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/lib/liblio_sam__rosidl_typesupport_introspection_cpp.so\n'}
+[39.653443] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/lib/liblio_sam__rosidl_typesupport_cpp.so\n'}
+[39.653500] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/environment/pythonpath.sh\n'}
+[39.653558] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/environment/pythonpath.dsv\n'}
+[39.653616] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam-1.0.0-py3.10.egg-info\n'}
+[39.653675] (lio_sam) StdoutLine: {'line': b'-- Installing: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam-1.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[39.653734] (lio_sam) StdoutLine: {'line': b'-- Installing: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam-1.0.0-py3.10.egg-info/top_level.txt\n'}
+[39.653793] (lio_sam) StdoutLine: {'line': b'-- Installing: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam-1.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[39.653850] (lio_sam) StdoutLine: {'line': b'-- Installing: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam-1.0.0-py3.10.egg-info/PKG-INFO\n'}
+[39.653908] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam\n'}
+[39.653975] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam/srv\n'}
+[39.654042] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam/srv/__init__.py\n'}
+[39.654104] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam/srv/_save_map.py\n'}
+[39.654161] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam/srv/_save_map_s.c\n'}
+[39.654220] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam/lio_sam_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[39.654279] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam/msg\n'}
+[39.654337] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam/msg/_cloud_info.py\n'}
+[39.654395] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam/msg/_cloud_info_s.c\n'}
+[39.654453] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam/msg/__init__.py\n'}
+[39.654511] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam/_lio_sam_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[39.654570] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam/_lio_sam_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[39.654629] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam/__init__.py\n'}
+[39.654688] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam/_lio_sam_s.ep.rosidl_typesupport_c.c\n'}
+[39.654746] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam/liblio_sam__rosidl_generator_py.so\n'}
+[39.654808] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam/lio_sam_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[39.654867] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam/lio_sam_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[39.668678] (lio_sam) StdoutLine: {'line': b"Listing '/home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam'...\n"}
+[39.668806] (lio_sam) StdoutLine: {'line': b"Listing '/home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam/msg'...\n"}
+[39.668874] (lio_sam) StdoutLine: {'line': b"Listing '/home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam/srv'...\n"}
+[39.671272] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam/lio_sam_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[39.671466] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam/lio_sam_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[39.671640] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/local/lib/python3.10/dist-packages/lio_sam/lio_sam_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[39.671834] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/lib/liblio_sam__rosidl_generator_py.so\n'}
+[39.671920] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/msg/CloudInfo.idl\n'}
+[39.672161] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/srv/SaveMap.idl\n'}
+[39.672268] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/msg/CloudInfo.msg\n'}
+[39.672363] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/srv/SaveMap.srv\n'}
+[39.672428] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/srv/SaveMap_Request.msg\n'}
+[39.672490] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/srv/SaveMap_Response.msg\n'}
+[39.672564] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//launch\n'}
+[39.672631] (lio_sam) StdoutLine: {'line': b'-- Installing: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//launch/run.launch.py\n'}
+[39.672693] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//launch/launch_backup\n'}
+[39.672763] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config\n'}
+[39.672829] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/doc\n'}
+[39.672899] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/doc/loop-closure.gif\n'}
+[39.672991] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/doc/paper.pdf\n'}
+[39.673085] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/doc/imu-transform.png\n'}
+[39.673156] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/doc/kitti-map.png\n'}
+[39.673220] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/doc/kitti2bag\n'}
+[39.673290] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/doc/kitti2bag/kitti2bag.py\n'}
+[39.673354] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/doc/kitti2bag/README.md\n'}
+[39.673422] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/doc/device-boat.png\n'}
+[39.673492] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/doc/device-jackal.png\n'}
+[39.673568] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/doc/gps-demo.gif\n'}
+[39.673631] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/doc/device-hand.png\n'}
+[39.673699] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/doc/kitti-demo.gif\n'}
+[39.673759] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/doc/device-hand-2.png\n'}
+[39.673816] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/doc/imu-debug.gif\n'}
+[39.673874] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/doc/demo.gif\n'}
+[39.673931] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/doc/loop-closure-2.gif\n'}
+[39.673998] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/doc/ouster-device.jpg\n'}
+[39.674058] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/doc/system.png\n'}
+[39.674116] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/doc/ouster-demo.gif\n'}
+[39.674179] (lio_sam) StdoutLine: {'line': b'-- Installing: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/rviz2.rviz\n'}
+[39.674265] (lio_sam) StdoutLine: {'line': b'-- Installing: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/example_gazebo.xacro\n'}
+[39.674324] (lio_sam) StdoutLine: {'line': b'-- Installing: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/params.yaml\n'}
+[39.674382] (lio_sam) StdoutLine: {'line': b'-- Installing: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/robot.urdf.xacro\n'}
+[39.674440] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/robot_backup1.urdf.xacro\n'}
+[39.674498] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam//config/xacro_backup\n'}
+[39.674557] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/lib/lio_sam/lio_sam_imageProjection\n'}
+[39.674670] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/lib/lio_sam/lio_sam_imuPreintegration\n'}
+[39.675016] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/lib/lio_sam/lio_sam_featureExtraction\n'}
+[39.675443] (lio_sam) StdoutLine: {'line': b'-- Installing: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/lib/lio_sam/lio_sam_mapOptimization\n'}
+[39.677146] (lio_sam) StdoutLine: {'line': b'-- Set runtime path of "/home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/lib/lio_sam/lio_sam_mapOptimization" to ""\n'}
+[39.677288] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include\n'}
+[39.677386] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam\n'}
+[39.677464] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/include/lio_sam/utility.hpp\n'}
+[39.677528] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/ament_index/resource_index/package_run_dependencies/lio_sam\n'}
+[39.677616] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/ament_index/resource_index/parent_prefix_path/lio_sam\n'}
+[39.677725] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/environment/ament_prefix_path.sh\n'}
+[39.677800] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/environment/ament_prefix_path.dsv\n'}
+[39.677864] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/environment/path.sh\n'}
+[39.677927] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/environment/path.dsv\n'}
+[39.678061] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/local_setup.bash\n'}
+[39.678146] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/local_setup.sh\n'}
+[39.678233] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/local_setup.zsh\n'}
+[39.678298] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/local_setup.dsv\n'}
+[39.678360] (lio_sam) StdoutLine: {'line': b'-- Installing: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/package.dsv\n'}
+[39.678420] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/ament_index/resource_index/packages/lio_sam\n'}
+[39.678480] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/export_lio_sam__rosidl_generator_cExport.cmake\n'}
+[39.678540] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/export_lio_sam__rosidl_generator_cExport-release.cmake\n'}
+[39.678599] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/export_lio_sam__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[39.678659] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/export_lio_sam__rosidl_typesupport_fastrtps_cExport-release.cmake\n'}
+[39.678719] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/lio_sam__rosidl_typesupport_introspection_cExport.cmake\n'}
+[39.678780] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/lio_sam__rosidl_typesupport_introspection_cExport-release.cmake\n'}
+[39.678840] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/lio_sam__rosidl_typesupport_cExport.cmake\n'}
+[39.678900] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/lio_sam__rosidl_typesupport_cExport-release.cmake\n'}
+[39.678965] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/export_lio_sam__rosidl_generator_cppExport.cmake\n'}
+[39.679031] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/export_lio_sam__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[39.679090] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/export_lio_sam__rosidl_typesupport_fastrtps_cppExport-release.cmake\n'}
+[39.679150] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/lio_sam__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[39.679215] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/lio_sam__rosidl_typesupport_introspection_cppExport-release.cmake\n'}
+[39.679283] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/lio_sam__rosidl_typesupport_cppExport.cmake\n'}
+[39.679380] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/lio_sam__rosidl_typesupport_cppExport-release.cmake\n'}
+[39.679571] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/export_lio_sam__rosidl_generator_pyExport.cmake\n'}
+[39.679717] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/export_lio_sam__rosidl_generator_pyExport-release.cmake\n'}
+[39.680075] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/rosidl_cmake-extras.cmake\n'}
+[39.680333] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[39.680506] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[39.680860] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[39.680968] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[39.681073] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[39.681173] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[39.681334] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/lio_samConfig.cmake\n'}
+[39.681436] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/cmake/lio_samConfig-version.cmake\n'}
+[39.681745] (lio_sam) StdoutLine: {'line': b'-- Up-to-date: /home/mscroboticslaptop19/ros2_ws/src/LIO-SAM/install/lio_sam/share/lio_sam/package.xml\n'}
+[39.681849] (lio_sam) CommandEnded: {'returncode': 0}
+[39.745835] (-) TimerEvent: {}
+[39.763995] (lio_sam) JobEnded: {'identifier': 'lio_sam', 'rc': 0}
+[39.764686] (-) EventReactorShutdown: {}

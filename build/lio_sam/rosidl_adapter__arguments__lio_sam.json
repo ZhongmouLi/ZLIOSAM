@@ -1,0 +1,7 @@
+{
+  "package_name": "lio_sam",
+  "non_idl_tuples": [
+    "/home/mscroboticslaptop19/ros2_ws/src/LIO-SAM:msg/CloudInfo.msg",
+    "/home/mscroboticslaptop19/ros2_ws/src/LIO-SAM:srv/SaveMap.srv"
+  ]
+}

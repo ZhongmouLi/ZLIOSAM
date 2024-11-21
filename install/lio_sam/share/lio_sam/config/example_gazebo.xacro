@@ -1,0 +1,228 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+ 
+
+
+ <!-- ang_res_h="0.4" ang_res_v="2.0" min_ang_h="-3.141592" max_ang_h="3.141592" min_ang_v="-0.261799" max_ang_v="0.261799" min_range="0.9" max_range="130.0" update_rate="50" -->
+
+<xacro:property name="ang_res_h" value="0.4"/>
+<xacro:property name="ang_res_v" value="2.0"/>
+<xacro:property name="min_ang_h" value="-3.141592"/>
+<xacro:property name="max_ang_h" value="3.141592"/>
+<xacro:property name="min_ang_v" value="-0.261799"/>
+<xacro:property name="max_ang_v" value="0.261799"/>
+<xacro:property name="min_range" value="0.9"/>
+<xacro:property name="max_range" value="130.0"/>
+<xacro:property name="update_rate" value="50"/>
+<xacro:property name="imu_update_rate" value="200"/>
+
+
+<xacro:property name="samples_h" value="${round((max_ang_h - min_ang_h) * 180 / (ang_res_h * pi))}"/>
+<xacro:property name="samples_v" value="${round((max_ang_v - min_ang_v) * 180 / (ang_res_v * pi))}"/>
+
+ <!-- GAZEBO PLUGINS -->
+  
+
+  <!-- List all movable joints -->
+  <!-- https://gazebosim.org/api/gazebo/6/classignition_1_1gazebo_1_1systems_1_1JointStatePublisher.html -->
+  <gazebo>
+      <plugin filename="ignition-gazebo-joint-state-publisher-system" name="ignition::gazebo::systems::JointStatePublisher">
+        <update_rate>100</update_rate>
+        <joint_name>base_wheel_left_joint</joint_name>
+        <joint_name>base_wheel_right_joint</joint_name>
+        
+        <!-- <topic>/world/<world_name>/model/<model_name>/joint_state</topic> THIS IS DEFAULT -->
+        <topic>/model/diff_drive_example/joint_state</topic> <!-- remove world leading prefixes -->
+      </plugin>
+  </gazebo>
+
+  <!-- Differential Drive -->
+  <!-- https://gazebosim.org/api/gazebo/6/classignition_1_1gazebo_1_1systems_1_1DiffDrive.html -->
+  <gazebo>
+    <plugin filename="ignition-gazebo-diff-drive-system" name="ignition::gazebo::systems::DiffDrive">
+      <!-- Wheel Joints -->
+      <left_joint>base_wheel_left_joint</left_joint>
+      <right_joint>base_wheel_right_joint</right_joint>
+
+      <!-- Kinematics -->
+      <wheel_separation>${base_link_y + wheel_length}</wheel_separation>
+      <wheel_radius>${wheel_radius}</wheel_radius>
+
+      <odom_publish_frequency>50</odom_publish_frequency>
+      
+      <!-- TF Frames -->
+      <frame_id>/odom</frame_id>
+      <child_frame_id>/base_footprint</child_frame_id>
+
+      <!-- topics -->
+      <!-- <topic>/model/diff_drive_example/cmd_vel</topic> THIS IS DEFAULT -->
+      <!-- <odom_topic>/model/diff_drive_example/odometry</odom_topic> THIS IS DEFAULT-->
+      <!-- <tf_topic>/model/diff_drive_example/tf</tf_topic> THIS IS DEFAULT -->
+      <!-- <tf_topic></tf_topic> Leave blank if you plan to use a filter + imu (e.g. EKF) -->
+    </plugin>
+  </gazebo>
+
+
+  <!-- SENSORS -->
+  <gazebo reference="lidar_link">
+    <sensor type="gpu_lidar" name="generic_lidar_sensor">
+        <update_rate>${update_rate}</update_rate>
+        <visualize>true</visualize>
+        <always_on>true</always_on>
+        <frame_id>lidar_link</frame_id>
+        <ignition_frame_id>lidar_link</ignition_frame_id>
+        <topic>/lzm/points</topic>
+        <lidar>
+          <scan>
+            <horizontal>
+              <samples>${samples_h}</samples>
+              <resolution>1</resolution>
+              <min_angle>${min_ang_h}</min_angle>
+              <max_angle>${max_ang_h}</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>${samples_v}</samples>
+              <resolution>1</resolution>
+              <min_angle>${min_ang_v}</min_angle>
+              <max_angle>${max_ang_v}</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>${min_range}</min>
+            <max>${max_range}</max>
+            <resolution>0.01</resolution>
+          </range>
+        </lidar>
+      <!-- <topic>/lzm/points</topic>
+      <frame_id>lidar_link</frame_id>
+      <ignition_frame_id>lidar_link</ignition_frame_id>
+
+      <update_rate>15.0</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>270</samples>
+            <resolution>1</resolution>
+            <min_angle>-${pi*0.75}</min_angle>
+            <max_angle>${pi*0.75}</max_angle>
+          </horizontal>
+          <vertical>
+            <samples>10</samples>
+            <resolution>1</resolution>
+            <min_angle>-${pi*0.75}</min_angle>
+            <max_angle>${pi*0.75}</max_angle>
+          </vertical>          
+        </scan>
+        <range>
+          <min>0.10</min>
+          <max>8.0</max>
+          <resolution>0.06</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.02</stddev>
+        </noise>
+      </ray>
+      <always_on>1</always_on>
+      <visualize>true</visualize> -->
+    </sensor>
+  </gazebo>
+  <gazebo>
+    <plugin filename="libignition-gazebo-sensors-system.so" name="ignition::gazebo::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+  </gazebo>
+
+
+  <gazebo reference="base_link">
+    <sensor name="imu_sensor" type="imu">
+      <topic>/lzm/imu</topic>
+      <frame_id>base_link</frame_id>
+      <ignition_frame_id>base_link</ignition_frame_id>
+      <plugin filename="libignition-gazebo-imu-system.so" name="ignition::gazebo::systems::Imu">
+        <initial_orientation_as_reference>false</initial_orientation_as_reference>
+      </plugin>
+      <always_on>true</always_on>
+      <update_rate>${imu_update_rate}</update_rate>
+      <visualize>true</visualize>
+     <imu>
+     	<angular_velocity>
+     	  <x>
+     	    <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-4</stddev>
+              <bias_mean>0.0000075</bias_mean>
+              <bias_stddev>0.0000008</bias_stddev>
+            </noise>
+          </x>
+          <y>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-4</stddev>
+              <bias_mean>0.0000075</bias_mean>
+              <bias_stddev>0.0000008</bias_stddev>
+            </noise>
+          </y>
+          <z>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-4</stddev>
+              <bias_mean>0.0000075</bias_mean>
+              <bias_stddev>0.0000008</bias_stddev>
+            </noise>
+          </z>
+        </angular_velocity>
+        <linear_acceleration>
+          <x>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.7e-2</stddev>
+              <bias_mean>0.1</bias_mean>
+              <bias_stddev>0.001</bias_stddev>
+            </noise>
+          </x>
+          <y>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.7e-2</stddev>
+              <bias_mean>0.1</bias_mean>
+              <bias_stddev>0.001</bias_stddev>
+            </noise>
+          </y>
+          <z>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.7e-2</stddev>
+              <bias_mean>0.1</bias_mean>
+              <bias_stddev>0.001</bias_stddev>
+            </noise>
+          </z>
+        </linear_acceleration>
+      </imu>
+    </sensor>
+  </gazebo>
+
+  <!-- FRICTION AND PHYSICS -->
+  <gazebo reference="back_castor_link">
+    <mu1 value="0.00001"/>
+    <mu2 value="0.00001"/>
+  </gazebo>
+  
+  <gazebo reference="front_castor_link">
+    <mu1 value="0.00001"/>
+    <mu2 value="0.00001"/>
+  </gazebo>
+
+  <gazebo reference="wheel_right">
+    <mu1 value="1.0"/>
+    <mu2 value="1.0"/>
+  </gazebo>
+
+  <gazebo reference="wheel_left">
+    <mu1 value="1.0"/>
+    <mu2 value="1.0"/>
+  </gazebo>
+
+
+</robot>
