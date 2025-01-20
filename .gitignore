@@ -10,3 +10,4 @@ log/
 msg/
 srv/
 install/
+.vscode/
