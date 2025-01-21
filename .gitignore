@@ -7,7 +7,5 @@
 *.pdf
 build/
 log/
-msg/
-srv/
 install/
 .vscode/
