@@ -1,3 +1,17 @@
+# ZLIO-SAM
+
+This is a tutorial with examples and explanations to show how to use LIO-SAM in ROS2-Gazebo simulation and ROS2 real-world experiment. 
+
+The key motivation for author is from the frustration that the tutorial for LIO-SAM is limited and few people answer questions posted on the original rep. It is true that this rep may not cover everything, as the author may not have tried them. But you are welcome to submit pull requests.
+
+This rep contains two main branches: 
+- *cust4sim* for simulation that is tested in Gazebo ign and ROS2 Humble,
+- *ros2_experiment* for experiments that is tested with Husky and ROS2 Humble.
+
+Both of them are written based on
+- a VLP16 3D LIDAR that publishes both pointcloud2 and laserscan at the same time,
+- a 9-axis MicroStrain 3DM-GX5-AHRS IMU.
+
 # LIO-SAM
 
 **A real-time lidar-inertial odometry package. We strongly recommend the users read this document thoroughly and test the package with the provided dataset first. A video of the demonstration of the method can be found on [YouTube](https://www.youtube.com/watch?v=A0H8CoORZJU).**
