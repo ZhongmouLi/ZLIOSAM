@@ -1,215 +1,42 @@
 <?xml version="1.0"?>
+<robot name="lio" xmlns:xacro="http://tixiaoshan.github.io/">
+  <xacro:property name="PI" value="3.1415926535897931" />
 
-<robot name="lio" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <link name="chassis_link"></link>
 
-<!-- Materials -->
-<material name="uom_purple">
-    <color rgba="0.4 0 0.6 1"/>
-</material>
-
-<material name="uom_yellow">
-    <color rgba="1.0 0.8 0.2 1"/>
-</material>
-
-<material name="uom_grey">
-    <color rgba="0.6 0.6 0.6 1"/>
-</material>
-
-<!-- Values -->
-<xacro:property name="base_link_x" value="0.5" />
-<xacro:property name="base_link_y" value="0.4" />
-<xacro:property name="base_link_z" value="0.3" />
-<xacro:property name="base_link_origin_x" value="0.10" />
-<xacro:property name="base_link_origin_z" value="0.10" />
-
-<xacro:property name="wheel_length" value="0.06" />
-<xacro:property name="wheel_radius" value="0.10" />
-<xacro:property name="wheel_mass" value="1.2" />
-
-<xacro:property name="lidar_mass" value="0.12" />
-<xacro:property name="lidar_width" value="0.10" />
-<xacro:property name="lidar_height" value="0.08" />
-
-<xacro:property name="castor_radius" value="${wheel_radius - (0.5*base_link_z - base_link_origin_z)}"/>
-<xacro:property name="castor_mass" value="0.025" />
-
-
-<!-- Macros -->
-<xacro:macro name="wheel" params="name length radius mass reflect:=1">
-  <link name="${name}">
-    <visual>
-        <geometry>
-            <cylinder length="${length}" radius="${radius}" />
-        </geometry>
-        <material name="uom_grey"/>
-        <origin xyz="0 0 ${reflect*length/2}" rpy="0 0 0"/>
-    </visual>
-
-    <collision>
-        <geometry>
-            <cylinder length="${length}" radius="${radius}" />
-        </geometry>
-        <origin xyz="0 0 ${reflect*length/2}" rpy="0 0 0"/>
-    </collision>
-
-    <inertial>
-      <mass value="${mass}"/>
-      <inertia ixx="${(mass/12)*(3*radius**2 + length**2)}" ixy="0.0" ixz="0.0" iyy="${(mass/12)*(3*radius**2 + length**2)}" iyz="0.0" izz="${(mass/2)*(radius**2)}"/>
-      <origin xyz="0 0 ${reflect*length/2}" rpy="0 0 0"/>
-    </inertial>
-</link>
-</xacro:macro>
-
-<xacro:macro name="box_inertia" params="x y z mass origin_x:=0 origin_y:=0 origin_z:=0">
-    <inertial>
-      <mass value="${mass}"/>
-      <inertia ixx="${(mass / 12) * (y**2 + z**2)}" ixy="0.0" ixz="0.0" iyy="${(mass / 12) * (x**2 + z**2)}" iyz="0.0" izz="${(mass / 12) * (x**2 + y**2)}"/>
-      <origin xyz="${origin_x} ${origin_y} ${origin_z}" rpy="0 0 0"/>
-    </inertial>
-</xacro:macro>
-
-<xacro:macro name="box_collision" params="x y z origin_x:=0 origin_y:=0 origin_z:=0">
-    <collision>
-        <geometry>
-            <box size="${x} ${y} ${z}"/>
-        </geometry>
-        <origin xyz="${origin_x} ${origin_y} ${origin_z}" rpy="0 0 0"/>
-    </collision>
-</xacro:macro>
-
-<!-- LINKS -->
-
-<!-- Simple link to act as the root -->
-<link name="base_footprint"/>
-
-<!-- Base Link -->
-<!-- Written out in full with no macros -->
-<link name="base_link">
-    <visual>
-        <geometry>
-            <box size="${base_link_x} ${base_link_y} ${base_link_z}"/>
-        </geometry>
-        <material name="uom_purple"/>
-        <origin xyz="${base_link_origin_x} 0 ${base_link_origin_z}" rpy="0 0 0"/>
-    </visual>
-
-    <collision>
-        <geometry>
-            <box size="${base_link_x} ${base_link_y} ${base_link_z}"/>
-        </geometry>
-        <origin xyz="${base_link_origin_x} 0 ${base_link_origin_z}" rpy="0 0 0"/>
-    </collision>
-    
-    <inertial>
-      <mass value="12"/>
-      <inertia ixx="0.25" ixy="0.0" ixz="0.0" iyy="0.34" iyz="0.0" izz="0.41"/>
-      <origin xyz="${base_link_origin_x} 0 ${base_link_origin_z}" rpy="0 0 0"/>
-    </inertial>
-</link>
-
-<!-- Lidar Link -->
-<link name="lidar_link">
-    <visual>
-        <!-- <geometry>
-            <mesh filename="package://example_urdf_robot/meshes/Generic_100mm_lidar.stl" scale="1 1 1"/>
-        </geometry> -->
-        <material name="uom_yellow"/>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-    </visual>
-
-    <xacro:box_collision x="${lidar_width}" y="${lidar_width}" z="${lidar_height}" origin_z="-0.015"/>
-
-    <xacro:box_inertia x="${lidar_width}" y="${lidar_width}" z="${lidar_height}" mass="${lidar_mass}" origin_z="-0.015"/>
-</link>
-
-
-<!-- Wheel Links -->
-<xacro:wheel name="wheel_left" length="${wheel_length}" radius="${wheel_radius}" mass="${wheel_mass}"/>
-<xacro:wheel name="wheel_right" length="${wheel_length}" radius="${wheel_radius}" mass="${wheel_mass}" reflect="-1"/>
-
-
-<!-- Castor Link -->
-<link name="front_castor_link">
-    <visual>
-        <geometry>
-            <sphere radius="${castor_radius}"/>
-        </geometry>
-        <material name="uom_grey"/>
-    </visual>
-
-    <collision>
-        <geometry>
-            <sphere radius="${castor_radius}"/>
-        </geometry>
-    </collision>
-
-    <xacro:property name="I_castor" value="${(2/5)*castor_mass*castor_radius**2}"/>
-    <inertial>
-        <mass value="${castor_mass}"/>
-        <inertia ixx="${I_castor}" ixy="0.0" ixz="0.0" iyy="${I_castor}" iyz="0.0" izz="${I_castor}"/>
-    </inertial>
-</link>
-
-<link name="back_castor_link">
-    <visual>
-        <geometry>
-            <sphere radius="${castor_radius}"/>
-        </geometry>
-        <material name="uom_grey"/>
-    </visual>
-
-    <collision>
-        <geometry>
-            <sphere radius="${castor_radius}"/>
-        </geometry>
-    </collision>
-
-    <xacro:property name="I_castor" value="${(2/5)*castor_mass*castor_radius**2}"/>
-    <inertial>
-        <mass value="${castor_mass}"/>
-        <inertia ixx="${I_castor}" ixy="0.0" ixz="0.0" iyy="${I_castor}" iyz="0.0" izz="${I_castor}"/>
-    </inertial>
-</link>
-
-<!-- JOINTS -->
-<joint name="base_lidar_joint" type="fixed">
+  <link name="base_link"></link>
+  <joint name="base_link_joint" type="fixed">
     <parent link="base_link"/>
-    <child link="lidar_link"/>
-    <origin xyz="0 0 0.3" rpy="0 0 0"/>
-</joint>
+    <child link="chassis_link" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
 
-<joint name="base_wheel_left_joint" type="continuous">
-    <parent link="base_link"/>
-    <child link="wheel_left"/>
-    <origin xyz="0 ${0.5*base_link_y} 0" rpy="${-0.5 * pi} 0 0"/>
-    <axis xyz="0 0 1"/>
-</joint>
+  <link name="lidar_link"> </link>
+  <joint name="lidar_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="lidar_link" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
 
-<joint name="base_wheel_right_joint" type="continuous">
-    <parent link="base_link"/>
-    <child link="wheel_right"/>
-    <origin xyz="0 ${-0.5*base_link_y} 0" rpy="${-0.5 * pi} 0 0"/>
-    <axis xyz="0 0 1"/>
-</joint>
+  <link name="imu_link"> </link>
+  <joint name="imu_joint" type="fixed">
+    <parent link="chassis_link" />
+    <child link="imu_link" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
 
-<joint name="base_front_castor_joint" type="fixed">
-    <parent link="base_link"/>
-    <child link="front_castor_link"/>
-    <origin xyz="0.3 0 ${-0.5*base_link_z + base_link_origin_z}"/>
-</joint>
+  <link name="laser_sensor_frame"> </link>
+  <joint name="laser_joint" type="fixed">
+    <parent link="imu_link" />
+    <child link="laser_sensor_frame" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
 
-<joint name="base_back_castor_joint" type="fixed">
-    <parent link="base_link"/>
-    <child link="back_castor_link"/>
-    <origin xyz="${-base_link_origin_x} 0 ${-0.5*base_link_z + base_link_origin_z}"/>
-</joint>
-
-<joint name="footprint_base_joint" type="fixed">
-    <parent link="base_footprint"/>
-    <child link="base_link"/>
-    <origin xyz="0 0 ${wheel_radius}"/>
-</joint>
-
-<xacro:include filename="$(find lio_sam)/config/example_gazebo.xacro" />
+  <link name="navsat_link"> </link>
+  <joint name="navsat_joint" type="fixed">
+    <parent link="chassis_link" />
+    <child link="navsat_link" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
 
 </robot>

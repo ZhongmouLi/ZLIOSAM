@@ -9,7 +9,7 @@
 
     # Frames
     lidarFrame: "lidar_link" # a200_0000/robot/base_link/lidar3d_0
-    baselinkFrame: "base_footprint"
+    baselinkFrame: "base_link"
     odometryFrame: "odom"
     mapFrame: "map"
 
@@ -41,17 +41,11 @@
     imuGravity: 9.80511
     imuRPYWeight: 0.01
 
-    extrinsicTrans:  [ 0.0,  0.0,  0.3]         # IMU向量到雷达坐标系的平移：P_{lidar} = T * P_{imu}
-    # extrinsicRot:    [ -1.0,  0.0,  0.0,          # IMU加速度向量到雷达坐标系的旋转
-    #                    0.0, 1.0,  0.0,
-    #                    0.0,  0.0, -1.0 ]
-    # extrinsicRPY: [ 0.0,  1.0,  0.0,             # IMU角速度向量到雷达坐标系的旋转
-    #                 -1.0, 0.0,  0.0,
-    #                 0.0,  0.0, 1.0 ]
-    extrinsicRot:    [ 1.0,  0.0,  0.0,          # IMU加速度向量到雷达坐标系的旋转
+    extrinsicTrans:  [ 0.0,  0.0,  0.3]          # position of LIDAR in the frame of base_link (where IMU is attached)
+    extrinsicRot:    [ 1.0,  0.0,  0.0,          # rotation matrix that represents linear acc measured by IMU expressed in lidar_frame
                        0.0, 1.0,  0.0,
                        0.0,  0.0, 1.0 ]
-    extrinsicRPY: [ 1.0,  0.0,  0.0,             # IMU角速度向量到雷达坐标系的旋转
+    extrinsicRPY: [ 1.0,  0.0,  0.0,             # rotation matrix that represents angular velocity measured by IMU expressed in lidar_frame
                     0.0,  1.0,  0.0,
                     0.0,  0.0,  1.0 ]
 

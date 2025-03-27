@@ -1,4 +1,397 @@
-# LIO-SAM
+# ZLIO-SAM
+This branch shows 
+- how to set sensors, i.e. a 3D LIDAR and a 9-axis IMU, in Gazebo, 
+- what the tf tree should be like before and after running LIO-SAM,
+- how to set parameters based on sensor inputs to run LIO-SAM.
+
+It has been tested in Gazebo, ROS2 Humble.
+## Steps to run LIO-SAM in simulation
+
+## 1. Configure robot in Gazebo simulation
+The objective is to simulate a mobile robot with a 3D Lidar and an IMU attached in Gazebo. 
+
+The method is to model the mobile robot and sensors's physical features and functions in urdf files, which Gazebo uses to simulate the robot and sensors.
+
+<p align='center'>
+    <img src="./doc/sim_robot_gazebo.png" alt="drawing" width="600"/>
+</p>
+It should have a complete tf tree of robot which can demonstrate robot movement in Rviz2
+<p align='center'>
+    <img src="./doc/sim_tf_rviz2.png" alt="drawing" width="400"/>
+</p>
+and its strcture can be shown in tf_tree.
+<p align='center'>
+    <img src="./doc/sim_robot_tf.png" alt="drawing" width="600"/>
+</p>
+Please ignore diff_drive_example/odom and diff_drive_example/base_link. They appear due to the simulated robot.
+
+### 1.1 Define LIDAR sensor in URDR/XACRO
+It is possible to first design the physical size, material and inertia of the 3D LIDAR. Its aim is to help users consider where and how to mount the sensor through simulation.
+
+We use a link to model the 3D LIDAR's physical characteristics in this example. Users can find these parameters from the datasheet of your LIDAR. With the definition below, the LIDAR sensor's physical features are well modeled.
+
+```xml
+  <!-- Lidar Link -->
+  <link name="lidar_link">
+      <visual>
+          <geometry>
+              <mesh filename="lidar_stl_address.stl" scale="1 1 1"/>
+          </geometry>
+          <material name="uom_yellow"/>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+      </visual>
+
+      <xacro:box_collision x="${lidar_width}" y="${lidar_width}" z="${lidar_height}" origin_z="-0.015"/>
+
+      <xacro:box_inertia x="${lidar_width}" y="${lidar_width}" z="${lidar_height}" mass="${lidar_mass}" origin_z="-0.015"/>
+  </link>
+```
+
+Then, where to mount the LIDAR is decided by the relative pose of *lidar_link* with respect to *base_link*. Usually, *base_link* is considered to be the one that connects every part of the robot. The relative pose depends on the joint *base_lidar_joint* that links *lidar_link* and *base_link*.
+
+It is important to note that ```<origin xyz="0 0 0.3" rpy="0 0 0"/>``` describes the pose of the child link *lidar_link* relative to the parent link *base_link*. In our case, the LIDAR is positioned 0.3m above the *base_link* along the z-axis.
+
+```xml
+<joint name="base_lidar_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="lidar_link"/>
+    <origin xyz="0 0 0.3" rpy="0 0 0"/>
+</joint>
+```
+Then, we need to achieve the functions of LIDAR, that is make the sensor publish measurement as outputs. 
+VLP16 can produce both pointcloud2 and laserscan as outputs, then we need to configure two different sensors for LIDAR here.
+
+
+```xml
+  <gazebo reference="lidar_link">
+    <sensor type="gpu_lidar" name="generic_lidar_sensor">
+        <update_rate>50</update_rate>
+        <visualize>true</visualize>
+        <always_on>true</always_on>
+        <frame_id>lidar_link</frame_id>
+        <ignition_frame_id>lidar_link</ignition_frame_id>
+        <topic>/model/diff_drive_example/points</topic>
+        <lidar>
+          <scan>
+              <horizontal>
+                <samples>1800</samples>
+                <resolution>0.2</resolution>
+                <min_angle>-3.1415926</min_angle>
+                <max_angle>3.1415926</max_angle>
+              </horizontal>
+              <vertical>
+                <samples>16</samples>
+                <resolution>2</resolution>
+                <min_angle>-0.261799</min_angle>
+                <max_angle>0.261799</max_angle>
+              </vertical>
+            </scan>
+            <range>
+              <min>0.3</min>
+              <max>100</max>
+              <resolution>0.001</resolution>
+            </range>
+        </lidar>
+    </sensor>
+    <!-- 2d lidar -->
+    <sensor type="gpu_lidar" name="generic_twold_lidar_sensor">
+      <topic>/model/diff_drive_example/scan</topic>
+      <frame_id>lidar_link</frame_id>
+      <ignition_frame_id>lidar_link</ignition_frame_id>
+      <update_rate>50.0</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>270</samples>
+            <resolution>1</resolution>
+            <min_angle>-${pi*0.75}</min_angle>
+            <max_angle>${pi*0.75}</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.10</min>
+          <max>8.0</max>
+          <resolution>0.06</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.02</stddev>
+        </noise>
+      </ray>
+      <always_on>1</always_on>
+      <visualize>true</visualize>
+    </sensor>
+  </gazebo>
+  <gazebo>  
+    <plugin filename="libignition-gazebo-sensors-system.so" name="ignition::gazebo::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+  </gazebo>
+```
+
+In terms of pointcloud2, we can assign  
+- frequency with ```<update_rate>${update_rate}</update_rate>```
+- the link, or frame id, where sensor is attached to, ```      <frame_id>lidar_link</frame_id>``` and ```<ignition_frame_id>lidar_link</ignition_frame_id>```
+- horizontal resolution equals to (*max_angle*-*min_angle*)/*samples* where we can find field of view as 360d and resolution as 0.2d (600rpm) to compute samples that should be 1800,
+- vertical samples as the number of channels,
+- range is 0 to 100m.
+```xml
+       <sensor type="gpu_lidar" name="generic_lidar_sensor">
+        <update_rate>50</update_rate>
+        <visualize>true</visualize>
+        <always_on>true</always_on>
+        <frame_id>lidar_link</frame_id>
+        <ignition_frame_id>lidar_link</ignition_frame_id>
+        <topic>/model/diff_drive_example/points</topic>
+        <lidar>
+          <scan>
+              <horizontal>
+                <samples>1800</samples>
+                <resolution>0.2</resolution>
+                <min_angle>-3.1415926</min_angle>
+                <max_angle>3.1415926</max_angle>
+              </horizontal>
+              <vertical>
+                <samples>16</samples>
+                <resolution>2</resolution>
+                <min_angle>-0.261799</min_angle>
+                <max_angle>0.261799</max_angle>
+              </vertical>
+            </scan>
+            <range>
+              <min>0.3</min>
+              <max>100</max>
+              <resolution>0.01</resolution>
+            </range>
+        </lidar>
+    </sensor>
+```
+Here is the datasheet from VLP16.
+<p align='center'>
+    <img src="./doc/VLP16_datasheet.png" alt="drawing" width="600"/>
+</p>
+
+The 2D lidar is simulated based on the horizontal data of VLP16.
+```xml
+    <!-- 2d lidar -->
+    <sensor type="gpu_lidar" name="generic_twold_lidar_sensor">
+      <topic>/model/diff_drive_example/scan</topic>
+      <frame_id>lidar_link</frame_id>
+      <ignition_frame_id>lidar_link</ignition_frame_id>
+      <update_rate>50.0</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+                <samples>1800</samples>
+                <resolution>0.2</resolution>
+                <min_angle>-3.1415926</min_angle>
+                <max_angle>3.1415926</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.3</min>
+          <max>100</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.02</stddev>
+        </noise>
+      </ray>
+      <always_on>1</always_on>
+      <visualize>true</visualize>
+    </sensor>
+```
+
+Finally, ``` <topic>/model/diff_drive_example/points</topic>``` in 3D LIDAR and ```<topic>/model/diff_drive_example/scan</topic>``` in 2D LIDAR will be used by ros2-gazebo bridge to produce pointcloud2 and lasercan output.  
+
+### 1.2 Configure IMU sensor
+It is quite common to attach the IMU to the base_link. There are fewer parameters to set compared to the LIDAR.
+
+We need to set the frequency of the IMU with ```<update_rate>100</update_rate>``` based on our sensor. Additionally, it is possible to set bias and noise for each axis for both linear acceleration and angular rate.
+
+```xml
+ <gazebo reference="base_link">
+    <sensor name="imu_sensor" type="imu">
+      <topic>/model/diff_drive_example/imu</topic>
+      <frame_id>base_link</frame_id>
+      <ignition_frame_id>base_link</ignition_frame_id>
+      <plugin filename="libignition-gazebo-imu-system.so" name="ignition::gazebo::systems::Imu">
+        <initial_orientation_as_reference>false</initial_orientation_as_reference>
+      </plugin>
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+     <imu>
+     	<angular_velocity>
+     	  <x>
+     	    <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-4</stddev>
+              <bias_mean>0.0000075</bias_mean>
+              <bias_stddev>0.0000008</bias_stddev>
+            </noise>
+          </x>
+          <y>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-4</stddev>
+              <bias_mean>0.0000075</bias_mean>
+              <bias_stddev>0.0000008</bias_stddev>
+            </noise>
+          </y>
+          <z>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-4</stddev>
+              <bias_mean>0.0000075</bias_mean>
+              <bias_stddev>0.0000008</bias_stddev>
+            </noise>
+          </z>
+        </angular_velocity>
+        <linear_acceleration>
+          <x>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.7e-2</stddev>
+              <bias_mean>0.1</bias_mean>
+              <bias_stddev>0.001</bias_stddev>
+            </noise>
+          </x>
+          <y>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.7e-2</stddev>
+              <bias_mean>0.1</bias_mean>
+              <bias_stddev>0.001</bias_stddev>
+            </noise>
+          </y>
+          <z>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.7e-2</stddev>
+              <bias_mean>0.1</bias_mean>
+              <bias_stddev>0.001</bias_stddev>
+            </noise>
+          </z>
+        </linear_acceleration>
+      </imu>
+    </sensor>
+  </gazebo>
+```
+
+### 1.3 Set Gazebo-ROS2 bridge (optional)
+
+## 2 Configure and run LIO-SAM parameters
+### 2.1 LIO-SAM and tf tree
+In the launch file, we must comment the lines call *robot_state_publisher*. This is because the tf tree showing robot components and sensors is created by the simulated robot.
+
+```yaml
+        # Node(
+        #     package='robot_state_publisher',
+        #     executable='robot_state_publisher',
+        #     name='robot_state_publisher',
+        #     output='screen',
+        #     parameters=[{
+        #         'robot_description': Command(['xacro', ' ', xacro_path])
+        #     }]
+        # ),
+```
+
+We can also note that this launch files publish a tf transform between map and odom.
+
+```python
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            arguments='0.0 0.0 0.0 0.0 0.0 0.0 map odom'.split(' '),
+            parameters=[parameter_file],
+            output='screen'
+            ),
+```
+
+Therefore, launching LIO-SAM (custsim branch) with ```run.launch.py``` will create 2 tf transforms: a fixed one between *odom* and *map* and a dynamic one between *odom* and *base_link*.
+
+<p align='center'>
+    <img src="./doc/sim_robot_lio_sam_tf.png" alt="drawing" width="700"/>
+</p>
+
+### 2.2 LIO-SAM, sensor inputs and tf transforms
+
+In ```conifg/params.yaml``` we need to specify sensors' inputs, i.e. a 3D Lidar and an IMU, as well as frames that to be used to construct the tf tree.
+
+1. Decide topics that contain imu data and lidar data.
+  ```yaml
+      pointCloudTopic: "/points"          # Point cloud data
+      imuTopic: "/imu_raw"                # IMU data
+  ```
+2. We only need to care about *baselinkFrame*, *odometryFrame* and *mapFrame*. Because because LIO-SAM on this branch only publishes the tf transform between *baselinkFrame*  and *odometryFrame*
+```yaml
+    # Frames
+    lidarFrame: "lidar_link"   # frame name of lidar_link (in fact, it does not matter what you put here)
+    baselinkFrame: "base_link" # frame name of base_link (check the base frame of your robot, here is where map/odom will be linked to the robot)
+    odometryFrame: "odom" # frame name for odometry (keep it as default)
+    mapFrame: "map"       # frame name for global map (keep it as default)
+```
+3. Obtain sensor settings for LIDAR and IMU. As a matter of fact, ```N_SCAN``` depends on ```<samples>16</samples>``` in the section ```<vertical>``` ; ```Horizon_SCAN``` is from <samples>1800</samples> in the section ```<horizontal>```. TODO: check units of ```lidarMinRange``` and ```lidarMaxRange```.
+
+    It leads to
+  ```yaml
+        # Sensor Settings
+      sensor: velodyne                               # lidar sensor type, either 'velodyne', 'ouster' or 'livox'
+      N_SCAN: 16                                  # number of lidar channels (i.e., Velodyne/Ouster: 16, 32, 64, 128, Livox Horizon: 6)
+      Horizon_SCAN: 1800                            # lidar horizontal resolution (Velodyne:1800, Ouster:512,1024,2048, Livox Horizon: 4000)
+      downsampleRate: 1                            # default: 1. Downsample your data if too many
+      # points. i.e., 16 = 64 / 4, 16 = 16 / 1
+      lidarMinRange: 1.0                           # default: 1.0, minimum lidar range to be used
+      lidarMaxRange: 1000.0                        # default: 1000.0, maximum lidar range to be used
+  ```
+
+  Then, ```imuAccNoise``` and ```imuAccBiasN``` are from  ```<stddev>1.7e-2</stddev>``` and  ```<bias_stddev>0.001</bias_stddev>``` in the section ```linear_acceleration``` and ```imuGyrNoise``` and ```imuGyrBiasN``` are based on ```<stddev>2e-4</stddev>``` and ```<bias_stddev>0.0000008</bias_stddev>``` in the section ```angular_velocity``` of IMU.
+```yaml
+    # IMU Settings
+    imuAccNoise: 1.7e-2
+    imuGyrNoise: 2.0e-4
+    imuAccBiasN: 0.001
+    imuGyrBiasN: 0.0000008
+
+    imuGravity: 9.80511
+    imuRPYWeight: 0.01
+```
+
+NOTE: IMU is attached to ```base_link```, then it is the relative pose of your LIDAR *lidar_link* with respect to your *base_link*. It is very important to notice that here *lidar_link* and *base_link* are links of your simulated robot, which is designed in Gazebo or other simulator and can be found in your urdf or xacro files.
+
+In our case, *lidiar_link* is 0.3m above *base_link* and their attitudes are the same.
+
+```yaml
+    extrinsicTrans:  [ 0.0,  0.0,  0.3]          # position of LIDAR in the frame of base_link (where IMU is attached)
+    extrinsicRot:    [ 1.0,  0.0,  0.0,          # rotation matrix that represents linear acc measured by IMU expressed in lidar_frame
+                       0.0, 1.0,  0.0,
+                       0.0,  0.0, 1.0 ]
+    extrinsicRPY: [ 1.0,  0.0,  0.0,             # rotation matrix that represents angular velocity measured by IMU expressed in lidar_frame
+                    0.0,  1.0,  0.0,
+                    0.0,  0.0,  1.0 ]
+```
+### 2.3 LIO-SAM other parameters (TO BE CONTINUED)
+There are other parameters that can be tuned.
+
+
+### 2.4 Run LIO-SAM
+
+Before running LIO-SAM, we can use Rviz2 to display pointclouds of 3D LIDAR choosing the *base_link* or *lidiar_link* as the global frame. 
+
+If pointcloud can be viewed, then it is the time to run LIO-SAM after starting your simulation. 
+
+```shell
+  ros2 launch lio_sam run.launch.py
+
+```
+
+---
+
+# LIO-SAM (Origin)
 
 **A real-time lidar-inertial odometry package. We strongly recommend the users read this document thoroughly and test the package with the provided dataset first. A video of the demonstration of the method can be found on [YouTube](https://www.youtube.com/watch?v=A0H8CoORZJU).**
 
