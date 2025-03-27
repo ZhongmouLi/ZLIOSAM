@@ -1,9 +1,5 @@
 *.log
 *.so
-*.png
-*.gif
-*.jpg
-*.pdf
 build/
 log/
 install/
